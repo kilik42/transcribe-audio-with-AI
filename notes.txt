@@ -1,0 +1,3 @@
+https://github.com/homebrew-ffmpeg/homebrew-ffmpeg/
+if you get an error try this for ffmpeg
+brew uninstall ffmpeg

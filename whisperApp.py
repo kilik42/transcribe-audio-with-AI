@@ -1,4 +1,4 @@
-# from hmac import trans_5C
+from hmac import trans_5C
 import streamlit as st
 import whisper
 
@@ -6,7 +6,7 @@ st.title("Whisper App")
 
 st.write("This is a simple app to demonstrate how to use Streamlit")
 
-audio_file = st.file_uploader("Upload your audio file", type=["mp3", "wav", "ogg"])
+audio_file = st.file_uploader("Upload your audio file", type=["mp3", "wav", "ogg","m4a"])
 
 
 model = whisper.load_model("base")
@@ -29,7 +29,8 @@ if st.sidebar.button("transcribe audio"):
         # st.audio(audio_file, format="audio/wav")
         transcription = model.transcribe(audio_file.name)
         st.sidebar.success("Transcription complete")
-        st.text(transcription["text"])
+        # st.text(transcription["text"])
+        st.markdown(transcription["text"])
 
     else:
         st.sidebar.error("Upload an audio file first")
